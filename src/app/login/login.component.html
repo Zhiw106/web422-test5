@@ -1,0 +1,36 @@
+<div id="errors" *ngIf="loginForm.invalid && loginForm.touched">
+  <p *ngIf="loginUsername.invalid">An user is required</p>
+  <p *ngIf="loginPassword.invalid">Password is required</p>
+</div>
+
+<form
+  action="/contactus"
+  method="post"
+  id="login-form"
+  #loginForm="ngForm"
+  (ngSubmit)="onSubmit(loginForm)"
+>
+  <label for="username">Name</label>
+  <input
+    type="text"
+    id="username"
+    name="username"
+    required
+    autofocus
+    [(ngModel)]="username"
+    #loginUsername="ngModel"
+  />
+  <br />
+  <label for="password">Password</label>
+  <input
+    type="password"
+    id="password"
+    name="password"
+    required
+    [(ngModel)]="password"
+    #loginPassword="ngModel"
+  />
+  <br />
+
+  <input type="submit" value="submit" [routerLink]="['/contactus']" />/>
+</form>

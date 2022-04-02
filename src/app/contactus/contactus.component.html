@@ -1,0 +1,38 @@
+<div id="errors" *ngIf="contactForm.invalid && contactForm.touched">
+  <p *ngIf="contactName.invalid">An user is required</p>
+  <p *ngIf="contactEmail.invalid">An email is required</p>
+  <p *ngIf="contactMessage.invalid">Message is required</p>
+</div>
+<form  id="contact-form" #contactForm="ngForm" (ngSubmit)="onSubmit(contactForm)">
+    <label for="name">Name</label>
+    <input
+      type="text"
+      id="name"
+      name="name"
+      required
+      [(ngModel)]="name"
+      #contactName="ngModel"
+    />
+    <br />
+    <label for="contact-email">Email</label>
+    <input
+      type="email"
+      id="contact-email"
+      name="email"
+      required
+      [(ngModel)]="email"
+      #contactEmail="ngModel"
+    />
+    <br />
+    <label for="contact-message">Message</label>
+    <input
+      type="text"
+      id="contact-message"
+      name="message"
+      required
+      [(ngModel)]="message"
+      #contactMessage="ngModel"
+    />
+    <br>
+    <input type="submit" value="submit" />
+  </form>
